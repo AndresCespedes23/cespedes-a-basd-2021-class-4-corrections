@@ -5,14 +5,36 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgb(218, 13, 13);
+    background-color: white;
     border-bottom: 1px solid black;
+}
+nav {
+    display: none;
+}
+aside {
+    display: none;
+}
+.advertisement {
+    display: none;
+    margin: 50px;
+    border: 5px solid black;
 }
 main {
     padding: 20px;
 }
 .burger .sections {
     display: none;
+}
+.header-page-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.header-page-logo img {
+    position: absolute;
+    width: 40%;
+    height: auto;
 }
 .buttons {
     display: flex;
@@ -21,6 +43,7 @@ main {
 .buttons .log-in, .fa-search {
     margin: 0px 0px 0px 10px;
     padding: 10px;
+    cursor: pointer;
 }
 .buttons .log-in {
     border: 1px solid black;
@@ -31,12 +54,15 @@ main {
     padding: 20px;
     border-bottom: 1px solid black;
 }
+.daily-info img {
+    display: none;
+}
 .la-list {
     display: none;
 }
 .principal-news-container {
     margin: 20px 0px;
-    background-color: rgb(89, 89, 219);
+
 }
 .principal-image {
     max-width: 100%;
@@ -48,8 +74,13 @@ main {
 }
 .news-links1, .news-links2, .news-links3 {
     padding: 20px;
-    border-top: 1px solid black;
+    border-top: 1px solid black; 
 }
+.news-links1 a, .news-links2 a, .news-links3 a {
+    text-decoration: none;
+    color: black;
+}
+
 
 @media only screen and (min-width: 768px) {
     .burger {
@@ -97,15 +128,76 @@ main {
     .news-links1, .news-links2, .news-links3{
         margin: 20px;
         border-top: none;
-
     }
     .news-links2, .news-links3{
         border-left: 1px solid black;
-    }
-    
-      
+    }    
 }
 
 @media only screen and (min-width: 992px) {
-
+    #desktop-view-container {
+        display: flex;
+    }
+    #desktop-view-container main {
+        width: 75%;
+    }
+    nav {
+        display: block;
+    }
+    nav ul {
+        display: flex;
+    }
+    nav ul li {
+        margin: 0px 0px 0px 10px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: black;
+    }
+    header img {
+        display: none;
+    }
+    aside {
+        display: block;
+        margin: 10px;
+        padding: 10px;
+        border-left: 1px solid black;
+    }
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .daily-info time, .temperature {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .daily-info img {
+        display: block;
+    }
+    .page-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    .page-logo img {
+        width: 50%;
+        height: auto;
+    }
+    .advertisement {
+        display: block;
+    }
+    .podcast {
+        border-bottom: 5px solid black;
+        padding-bottom: 20px;
+    }
+    .opinion h2 {
+        padding: 5px;
+    }
+    .opinion p {
+        padding: 20px 0px;
+        border-top: 1px solid black;
+    }
 }

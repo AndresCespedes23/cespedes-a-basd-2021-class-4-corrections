@@ -11,11 +11,52 @@
 </head>
 <body>
     <header>
-        <div class="burger">
-            <i class="fas fa-bars"></i>
-            <div class="sections">Sections</div>
+        <div class="navbar">
+            <div class="burger">
+                <i class="fas fa-bars"></i>
+                <div class="sections">Sections</div>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="">California</a> 
+                    </li>
+                    <li>
+                        <a href="">Entertainment</a> 
+                    </li>
+                    <li>
+                        <a href="">Sports </a>
+                    </li>
+                    <li>
+                        <a href="">Food</a>
+                    </li>
+                    <li>
+                        <a href="">Climate</a>
+                    </li>
+                    <li>
+                        <a href="">Opinion</a>
+                    </li>
+                    <li>
+                        |
+                    </li>
+                    <li>
+                        <a href="">Place an ad</a>
+                    </li>
+                    <li>
+                        <a href="">Coupons</a>
+                    </li>
+                    <li>
+                        <a href="">Crosswords</a>
+                    </li>
+                    <li>
+                        <a href="">eNewspapper</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <img src="" alt="">logo
+        <div class="header-page-logo">
+            <img src="./images/1280px-Los_Angeles_Times.svg.png" alt="los angeles times logo">
+        </div>
         <div class="buttons">
             <span class="log-in">Log in</span>
             <i class="fas fa-search"></i>
@@ -25,7 +66,10 @@
         <time>
             date
         </time>
-        <span>
+        <div class="page-logo">
+            <img src="./images/1280px-Los_Angeles_Times.svg.png" alt="los angeles times logo">
+        </div>
+        <span class="temperature">
             temperature
         </span>
     </div>
@@ -51,37 +95,54 @@
             </li>
         </ul>
     </div>
-    <main>
-        <article class="principal-news-container">
-            <div>
-                <img class="principal-image" src="" alt="">news image
+    <div class="advertisement">
+        advertisement
+    </div>
+    <div id="desktop-view-container">
+        <main>
+            <article class="principal-news-container">
+                <div>
+                    <img class="principal-image" src="./images/huntington-beach.jpg" alt="">
+                </div>
+                <div class="principal-news-info">
+                    <h1>
+                        Huntington Beach and oil were synonymous for decades. Those days are long gone
+                    </h1>
+                    <p>
+                        Huntington Beach’s drilling industry, facing angry residents and green resolutions, is in its death throes.
+                    </p>
+                </div>
+            </article>
+            <div class="secondary-news-container">
+                <div class="news-links1">
+                    <a href="">
+                        <h2>news title with link</h2>
+                    </a>
+                </div>
+                <div class="news-links2">
+                    <a href="">
+                        <h2>news title with link</h2>
+                    </a>
+                </div>
+                <div class="news-links3">
+                    <a href="">
+                        <h2>news title with link</h2>
+                    </a>
+                </div>
             </div>
-            <div class="principal-news-info">
-                <h1>
-                    principal news title
-                </h1>
-                <p>
-                     principal news description
-                </p>
+        </main> 
+        <aside>
+            <div class="podcast">
+                <img src="" alt="">
+                <h2>podcast</h2>
             </div>
-        </article>
-        <div class="secondary-news-container">
-            <div class="news-links1">
-                <a href="">
-                    <h2>news title with link</h2>
-                </a>
+            <div class="opinion">
+                <h2>opinion ></h2>
+                <p>opinion image1</p>
+                <p>opinion image2</p>
+                <p>opinion image3</p>
             </div>
-            <div class="news-links2">
-                <a href="">
-                    <h2>news title with link</h2>
-                </a>
-            </div>
-            <div class="news-links3">
-                <a href="">
-                    <h2>news title with link</h2>
-                </a>
-            </div>
-        </div>
-    </main> 
+        </aside>
+    </div>
 </body>
 </html>

@@ -3,35 +3,109 @@ header {
     top: 0;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+    padding: 10px 20px;
     background-color: rgb(218, 13, 13);
     border-bottom: 1px solid black;
 }
 main {
     padding: 20px;
 }
-.buttons span, i {
-    padding: 0px 5px;
+.burger .sections {
+    display: none;
 }
-.buttons span {
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.buttons .log-in, .fa-search {
+    margin: 0px 0px 0px 10px;
+    padding: 10px;
+}
+.buttons .log-in {
     border: 1px solid black;
 }
 .daily-info {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    
     border-bottom: 1px solid black;
-
+}
+.la-list {
+    display: none;
 }
 .principal-news-container {
     margin: 20px 0px;
     background-color: rgb(89, 89, 219);
 }
+.principal-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
 .principal-news-info h1, p {
     padding: 5px 0px;
 }
-.news-links {
+.news-links1, .news-links2, .news-links3 {
     padding: 20px;
     border-top: 1px solid black;
+}
+
+@media only screen and (min-width: 768px) {
+    .burger {
+        display: flex;
+        padding: 10px;
+        border: 1px solid black;
+    }
+    .burger .sections {
+        display: block;
+        justify-content: center;
+        align-self: center;
+        padding: 0px 10px;
+    }
+    .buttons .fa-search {
+        border: 1px solid black;
+    }
+    .la-list {
+        display: block;
+        border-bottom: 1px solid black;
+    }
+    .la-list ul {
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+    }
+    .la-list ul li {
+       padding: 5px;
+    }
+    .la-list ul li a {
+        padding: 5px;
+        background-color: gray;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: white;
+    }
+    .principal-news-container {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .secondary-news-container {
+        display: flex;
+        border-top: 1px solid black;
+        border-bottom: 2px solid black;
+    }
+    .news-links1, .news-links2, .news-links3{
+        margin: 20px;
+        border-top: none;
+
+    }
+    .news-links2, .news-links3{
+        border-left: 1px solid black;
+    }
+    
+      
+}
+
+@media only screen and (min-width: 992px) {
+
 }

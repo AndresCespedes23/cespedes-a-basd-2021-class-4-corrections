@@ -1,0 +1,48 @@
+.subscription-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    padding: 0px;
+}
+.subscription-container form {
+    margin: 0px;
+    border: 1px solid black;
+}
+.data-container {
+    padding: 20px 20px;
+}
+.data-container input {
+    padding: 10px 0px;
+    width: 100%;
+}
+.data-validation {
+    display: flex;
+}
+.data-validation h2 {
+    font-weight: bold;
+}
+.data-validation .fa-check-circle {
+    color: green;
+}
+.data-validation .fa-exclamation-circle {
+    color: red;
+}
+.error-message {
+    color: red;
+}
+form h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+form button {
+    padding: 5px;
+    width: 100%;
+}
+
+

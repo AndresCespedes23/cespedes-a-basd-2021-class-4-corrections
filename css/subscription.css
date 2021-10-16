@@ -2,6 +2,9 @@ form {
     border: 1px solid black;
 }
 form h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     border-bottom: 1px solid black;
 }
@@ -22,4 +25,13 @@ button {
     padding: 10px 0px;
     width: 100%;
 
+}
+
+@media only screen and (min-width: 992px) {
+    .responsive {  
+        display: flex;        
+    }
+    .data-column {
+        border: 1px solid lightgray;
+    }
 }

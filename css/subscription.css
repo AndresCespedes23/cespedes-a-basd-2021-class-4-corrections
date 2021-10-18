@@ -19,7 +19,7 @@ button {
 .subscription-form {
     display: flex;
     justify-content: center;
-    margin: 100px;
+    margin: 100px 0px;
 }
 .data-category {
     padding: 20px;

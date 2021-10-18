@@ -37,7 +37,6 @@ button {
     visibility: hidden;
 }
 
-
 @media only screen and (min-width: 992px) {
     .desktop-responsive {  
         display: flex;        

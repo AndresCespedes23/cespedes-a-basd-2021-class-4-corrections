@@ -197,4 +197,23 @@ function clearPostalMsg() {
 }
 postalInput.addEventListener('focus', clearPostalMsg);
 
+//dni
+function dniValidation () {
+    if ((dniInput.value.length >= 7 && dniInput.value.length <= 8) && dniInput.value.match(numbersReg) && !dniInput.value.match(symbolsReg)) {
+        dniInput.style.border = '2px solid green';
+        dniMsg.style.display = 'none';
+        fields['dni'] = true;
+    } else {
+        dniInput.style.border = '2px solid red';
+        dniMsg.style.display = 'block';
+        fields['dni'] = false;
+    }
+}
+dniInput.addEventListener('blur', dniValidation);
+
+function clearDniMsg() {
+    dniMsg.style.display = 'none';
+}
+dniInput.addEventListener('focus', clearDniMsg);
+
 

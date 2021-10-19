@@ -178,3 +178,23 @@ function clearAddressMsg() {
 }
 addressInput.addEventListener('focus', clearAddressMsg);
 
+//postal code
+function postalValidation () {
+    if (postalInput.value.length >= 3 ) {
+        postalInput.style.border = '2px solid green';
+        postalMsg.style.display = 'none';
+        fields['postCode'] = true;
+    } else {
+        postalInput.style.border = '2px solid red';
+        postalMsg.style.display = 'block';
+        fields['postCode'] = false;
+    }
+}
+postalInput.addEventListener('blur', postalValidation);
+
+function clearPostalMsg() {
+    postalMsg.style.display = 'none';
+}
+postalInput.addEventListener('focus', clearPostalMsg);
+
+

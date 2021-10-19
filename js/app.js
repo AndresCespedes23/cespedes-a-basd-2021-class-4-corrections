@@ -25,6 +25,7 @@ var dniMsg = document.getElementById('errMsgDni');
 var spanMsg = document.getElementsByClassName('errMsg')
 
 var sendButton = document.getElementsByClassName('sendButton');
+var validations = document.getElementById('validationsDiv');
 
 var fullnameReg = /^[a-zA-ZáéíóúÑñ]+(?:\s[a-zA-ZáéíóúÑñ]+)+$/;
 var emailReg= /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/;
@@ -216,4 +217,14 @@ function clearDniMsg() {
 }
 dniInput.addEventListener('focus', clearDniMsg);
 
+//button
+registerForm.onsubmit= function(e) {
+    e.preventDefault();
+    if (fields ['fullname'] && fields ['email'] && fields ['password'] && fields ['password2'] && fields ['age'] && fields ['phoneNumber'] && fields ['address'] && fields ['residence'] && fields ['postCode'] && fields ['dni']) {
+        validations.style.display = 'flex';
+        alert ('Subscription process successful. Your user data is:' + '\n' + 'Name: ' + fullnameInput.value + '\n' + 'Email: ' + emailInput.value + '\n' + 'Age: ' + ageInput.value + '\n' + 'Phone Number: ' + phoneInput.value + '\n' + 'Address: ' + addressInput.value + '\n' + 'Residenec: ' + residenceInput.value + '\n' + 'Postal Code: ' + postalInput.value + '\n' + 'DNI: ' + dniInput.value)
+    } else {
+        alert ('Subscription process failed. Please check your data and try again.')
+    }
+}
 

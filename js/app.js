@@ -12,7 +12,7 @@ var residenceInput = document.getElementById('residenceInput');
 var postalInput = document.getElementById('postalInput');
 var dniInput = document.getElementById('dniInput');
 
-var fullnameMsg = document.getElementById('errMsgFullame');
+var fullnameMsg = document.getElementById('errMsgFullname');
 var emailMsg = document.getElementById('errMsgEmail');
 var passwordMsg = document.getElementById('errMsgPass');
 var password2Msg = document.getElementById('errMsgPass2');
@@ -52,11 +52,11 @@ function fullnameValidation() {
     if (fullnameInput.value.match(fullnameReg) && fullnameInput.value.length >= 6)  {
         fullnameInput.style.border = '2px solid green';
         fullnameMsg.style.display = 'none';
-        fields['name'] = true;
+        fields['fullname'] = true;
     } else {
         fullnameInput.style.border = '2px solid red';
         fullnameMsg.style.display = 'block';
-        fields['name'] = false;
+        fields['fullname'] = false;
     }
 }
 fullnameInput.addEventListener('blur', fullnameValidation);
@@ -241,7 +241,7 @@ registerForm.onsubmit= function(e) {
     e.preventDefault();
     if (fields ['fullname'] && fields ['email'] && fields ['password'] && fields ['password2'] && fields ['age'] && fields ['phoneNumber'] && fields ['address'] && fields ['residence'] && fields ['postCode'] && fields ['dni']) {
         validations.style.display = 'flex';
-        alert ('Subscription process successful. Your user data is:' + '\n' + 'Name: ' + fullnameInput.value + '\n' + 'Email: ' + emailInput.value + '\n' + 'Age: ' + ageInput.value + '\n' + 'Phone Number: ' + phoneInput.value + '\n' + 'Address: ' + addressInput.value + '\n' + 'Residenece: ' + residenceInput.value + '\n' + 'Postal Code: ' + postalInput.value + '\n' + 'DNI: ' + dniInput.value)
+        alert ('Subscription process successful. Your user data is:' + '\n' + 'Fullname: ' + fullnameInput.value + '\n' + 'Email: ' + emailInput.value + '\n' + 'Age: ' + ageInput.value + '\n' + 'Phone Number: ' + phoneInput.value + '\n' + 'Address: ' + addressInput.value + '\n' + 'Residenece: ' + residenceInput.value + '\n' + 'Postal Code: ' + postalInput.value + '\n' + 'DNI: ' + dniInput.value)
     } else {
         alert ('Subscription process failed. Please check your data and try again.')
     }

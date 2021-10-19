@@ -1,157 +1,47 @@
-function fullnameValidationForm() {
+var registerForm = document.getElementById('form');
 
-    var error = document.getElementsByClassName('error-msg');
+var formInputs = document.getElementsByClassName('formInput');
+var fullnameInput = document.getElementById('fullnameInput');
+var emailInput = document.getElementById('emailInput ');
+var passwordInput = document.getElementById('passwordInput');
+var password2Input = document.getElementById('password2Input');
+var ageInput = document.getElementById('ageInput');
+var phoneInput = document.getElementById('phoneInput');
+var addressInput = document.getElementById('addressInput');
+var residenceInput = document.getElementById('residenceInput');
+var postalInput = document.getElementById('postalInput');
+var dniInput = document.getElementById('dniInput');
 
-    var success = document.getElementsByClassName('fa-check-circle');
+var fullNameMsg = document.getElementById('errMsgFullame');
+var emailMsg = document.getElementById('errMsgEmail');
+var passwordMsg = document.getElementById('errMsgPass');
+var password2Msg = document.getElementById('errMsgPass2');
+var ageMsg = document.getElementById('errMsgAge');
+var phoneMsg = document.getElementById('errMsgPhone');
+var addressMsg = document.getElementById('errMsgAddress');
+var residenceMsg = document.getElementById('errMsgResidence');
+var postalMsg = document.getElementById('errMsgPostal');
+var dniMsg = document.getElementById('errMsgDni');
+var spanMsg = document.getElementsByClassName('errMsg')
 
-    var fullnameInputText = document.getElementsByClassName('input-fullname').value;
+var sendButton = document.getElementsByClassName('sendButton');
 
-    if (fullnameInputText.length < 6 && fullname.indexOf(' ') >= 0) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
+var fullnameReg = /^[a-zA-ZáéíóúÑñ]+(?:\s[a-zA-ZáéíóúÑñ]+)+$/;
+var emailReg= /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/;
+var passwordReg= /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+var symbolsReg = /([@"'(.?*+^$#()_-])/;
+var numReg = /[0-9]/;
+var addressReg = /^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)+$/;
+
+var fields = {
+    name: false,
+    email:false,
+    password: false,
+    password2: false,
+    age:false,
+    phoneNumber: false,
+    address: false,
+    city:false,
+    postCode:false,
+    dni:false,
 }
-
-function emailValidationForm() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var emailInputText = document.getElementsByClassName('input-email').value;
-
-    if(emailInputText.indexOf('@') -1) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-function passwordValidationForm() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var passwordInputText = document.getElementsByClassName('input-password').value;
-
-    if (passwordInputText.length < 8 && passwordInputText != [A-Za-z0-9]) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-function passwordCheckValidation() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var confirmPasswordInputText = document.getElementsByClassName('input-password2').value;
-
-    if (passwordInputText !== confirmPasswordInputText ) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-function ageValidation() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var ageInputText = document.getElementsByClassName('age-input').value;
-
-    if(ageInputText > 18 && ageInputText != Number.isInteger()) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-function phoneNumberValidation() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var phoneNumberInputText = document.getElementsByClassName('input-phone').value;
-
-    if(phoneNumberInputText.length < 7 && phoneNumberInputText.indexOf(' ', '-', '{[()]}') >= 0) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-function adressValidation() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var addressInputText = document.getElementsByClassName('input-adress').value;
-
-    if(addressInputText.length < 5 && addressInputText.indexOf([A-Za-z0-9],' ')) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-function residenceValidation() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var residenceInputText = document.getElementsByClassName('input-residence').value;
-
-    if(residenceInputText.length < 3) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-function postalCodeValidation() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var postalCodeInputText = document.getElementsByClassName('input-postal').value;
-
-    if(postalCodeInputText.length < 3) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-function dniValidation() {
-
-    var error = document.getElementsByClassName('error-msg');
-
-    var success = document.getElementsByClassName('fa-check-circle');
-
-    var dniInputText = document.getElementsByClassName('input-dni').value;
-
-    if(dniInputText > 7 || dniInputText < 8) {
-        error.style = 'visibility: visible';
-    } else {
-        success.style = 'visibility: visible';
-    }
-}
-
-
-
-
-
-
-
-

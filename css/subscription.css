@@ -24,17 +24,12 @@ button {
 .data-category {
     padding: 20px;
 }
-.fa-check-circle {
-    visibility: hidden;
-    color: green;
-}
 .data-category input {
     padding: 10px 0px;
     width: 100%;
 }
 .err-msg {
     color: red;
-    visibility: hidden;
 }
 
 @media only screen and (min-width: 992px) {

@@ -12,7 +12,7 @@ var residenceInput = document.getElementById('residenceInput');
 var postalInput = document.getElementById('postalInput');
 var dniInput = document.getElementById('dniInput');
 
-var fullNameMsg = document.getElementById('errMsgFullame');
+var fullnameMsg = document.getElementById('errMsgFullame');
 var emailMsg = document.getElementById('errMsgEmail');
 var passwordMsg = document.getElementById('errMsgPass');
 var password2Msg = document.getElementById('errMsgPass2');
@@ -34,14 +34,32 @@ var numReg = /[0-9]/;
 var addressReg = /^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)+$/;
 
 var fields = {
-    name: false,
+    fullname: false,
     email:false,
     password: false,
     password2: false,
     age:false,
     phoneNumber: false,
     address: false,
-    city:false,
-    postCode:false,
+    residence:false,
+    postal:false,
     dni:false,
 }
+
+function nameValidation() {
+    if (fullnameInput.value.match(fullnameReg) && fullnameInput.value.length >= 6)  {
+        fullnameInput.style.border = '2px solid green';
+        fullnameMsg.style.display = 'none';
+        fields['name'] = true;
+    } else {
+        fullnameInput.style.border = '2px solid red';
+        fullnameMsg.style.display = 'block';
+        fields['name'] = false;
+    }
+}
+fullnameInput.addEventListener('blur', nameValidation);
+
+function clearFullnameMsg () {
+    fullnameMsg.style.display= 'none';
+}
+fullnameInput.addEventListener('focus', clearFullnameMsg);

@@ -25,13 +25,12 @@ var dniMsg = document.getElementById('errMsgDni');
 var spanMsg = document.getElementsByClassName('errMsg')
 
 var sendButton = document.getElementsByClassName('sendButton');
-var validations = document.getElementById('validationsDiv');
 
 var fullnameReg = /^[a-zA-ZáéíóúÑñ]+(?:\s[a-zA-ZáéíóúÑñ]+)+$/;
 var emailReg= /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/;
 var passwordReg= /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 var symbolsReg = /([@"'(.?*+^$#()_-])/;
-var numReg = /[0-9]/;
+var numbersReg = /[0-9]/;
 var addressReg = /^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)+$/;
 
 var fields = {
@@ -39,12 +38,12 @@ var fields = {
     email: false,
     password: false,
     password2: false,
-    age:false,
+    age: false,
     phoneNumber: false,
     address: false,
-    residence:false,
-    postal:false,
-    dni:false,
+    residence: false,
+    postal: false,
+    dni: false,
 }
 
 //fullname
@@ -184,11 +183,11 @@ function residenceValidation () {
     if (residenceInput.value.length >= 3) {
         residenceInput.style.border = '2px solid green';
         residenceMsg.style.display = 'none';
-        fields['city'] = true;
+        fields['residence'] = true;
     } else {
         residenceInput.style.border = '2px solid red';
         residenceMsg.style.display = 'block';
-        fields['city'] = false;
+        fields['residence'] = false;
     }
 }
 residenceInput.addEventListener('blur', residenceValidation);
@@ -203,11 +202,11 @@ function postalValidation () {
     if (postalInput.value.length >= 3 ) {
         postalInput.style.border = '2px solid green';
         postalMsg.style.display = 'none';
-        fields['postCode'] = true;
+        fields['postal'] = true;
     } else {
         postalInput.style.border = '2px solid red';
         postalMsg.style.display = 'block';
-        fields['postCode'] = false;
+        fields['postal'] = false;
     }
 }
 postalInput.addEventListener('blur', postalValidation);
@@ -239,11 +238,21 @@ dniInput.addEventListener('focus', clearDniMsg);
 //button
 registerForm.onsubmit= function(e) {
     e.preventDefault();
-    if (fields ['fullname'] && fields ['email'] && fields ['password'] && fields ['password2'] && fields ['age'] && fields ['phoneNumber'] && fields ['address'] && fields ['residence'] && fields ['postCode'] && fields ['dni']) {
-        validations.style.display = 'flex';
-        alert ('Subscription process successful. Your user data is:' + '\n' + 'Fullname: ' + fullnameInput.value + '\n' + 'Email: ' + emailInput.value + '\n' + 'Age: ' + ageInput.value + '\n' + 'Phone Number: ' + phoneInput.value + '\n' + 'Address: ' + addressInput.value + '\n' + 'Residenece: ' + residenceInput.value + '\n' + 'Postal Code: ' + postalInput.value + '\n' + 'DNI: ' + dniInput.value)
+    if (
+    fields ['fullname'] && 
+    fields ['email'] && 
+    fields ['password'] && 
+    fields ['password2'] && 
+    fields ['age'] && 
+    fields ['phoneNumber'] && 
+    fields ['address'] && 
+    fields ['residence'] && 
+    fields ['postal'] && 
+    fields ['dni']
+    ) { 
+         alert('Subscription process successful. Your user data is:' + '\n' + 'Fullname: ' + fullnameInput.value + '\n' + 'Email: ' + emailInput.value + '\n' + 'Age: ' + ageInput.value + '\n' + 'Phone Number: ' + phoneInput.value + '\n' + 'Address: ' + addressInput.value + '\n' + 'Residence: ' + residenceInput.value + '\n' + 'Postal Code: ' + postalInput.value + '\n' + 'DNI: ' + dniInput.value)
     } else {
-        alert ('Subscription process failed. Please check your data and try again.')
+        alert('Subscription process failed. Please check your data and try again.')
     }
 }
 

@@ -256,3 +256,21 @@ registerForm.onsubmit= function(e) {
     }
 }
 
+// API
+
+var url = 'http://curso-dev-2021.herokuapp.com/newsletter?name=andres+cespedes&email=andres.pablo.cespedes@gmail.com&password=andrescespedes23&password2=andrescespedes23&age=25&phone=123456789&address=1+de+mayo+123&residence=rosario&postal=2000&dni=12345678'
+
+fetch(url)
+    .then(function(res) {
+        console.log(res)
+        return res.json();
+    })
+    .then(function(data){
+        console.log(data);
+    }) 
+    .catch(function(error) {
+        console.log(error);
+    })
+
+// modal
+

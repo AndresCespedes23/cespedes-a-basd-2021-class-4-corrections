@@ -236,7 +236,7 @@ function clearDniMsg() {
 dniInput.addEventListener('focus', clearDniMsg);
 
 //button
-registerForm.onsubmit= function(e) {
+registerForm.onclick= function(e) {
     e.preventDefault();
     if (
     fields ['fullname'] && 
@@ -250,9 +250,9 @@ registerForm.onsubmit= function(e) {
     fields ['postal'] && 
     fields ['dni']
     ) { 
-         alert('Subscription process successful. Your user data is:' + '\n' + 'Fullname: ' + fullnameInput.value + '\n' + 'Email: ' + emailInput.value + '\n' + 'Age: ' + ageInput.value + '\n' + 'Phone Number: ' + phoneInput.value + '\n' + 'Address: ' + addressInput.value + '\n' + 'Residence: ' + residenceInput.value + '\n' + 'Postal Code: ' + postalInput.value + '\n' + 'DNI: ' + dniInput.value)
+         alert('Subscription process successful. Your user data is:' + '\n' + 'Fullname: ' + fullnameInput.value + '\n' + 'Email: ' + emailInput.value + '\n' + 'Age: ' + ageInput.value + '\n' + 'Phone Number: ' + phoneInput.value + '\n' + 'Address: ' + addressInput.value + '\n' + 'Residence: ' + residenceInput.value + '\n' + 'Postal Code: ' + postalInput.value + '\n' + 'DNI: ' + dniInput.value);
     } else {
-        alert('Subscription process failed. Please check your data and try again.')
+        alert('Subscription process failed. Please check your data and try again.');
     }
 }
 
@@ -272,5 +272,4 @@ fetch(url)
         console.log(error);
     })
 
-// modal
 

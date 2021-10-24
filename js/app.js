@@ -272,4 +272,28 @@ fetch(url)
         console.log(error);
     })
 
+//modal
+
+var modal = document.getElementById('dataModal');
+
+function modalOpen() {
+    modal.style.display = 'block';
+}
+registerForm.addEventListener('click', modalOpen)
+
+function modalClose() {
+    modal.style.display = 'none';
+}
+modal.addEventListener('click', modalClose);
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+}
+
+
+//
+
+
 

@@ -258,7 +258,7 @@ registerForm.onclick= function(e) {
 
 // API
 
-var url = 'http://curso-dev-2021.herokuapp.com/newsletter?name=andres+cespedes&email=andres.pablo.cespedes@gmail.com&password=andrescespedes23&password2=andrescespedes23&age=25&phone=123456789&address=1+de+mayo+123&residence=rosario&postal=2000&dni=12345678'
+var url = 'http://curso-dev-2021.herokuapp.com/newsletter?name=${fullnameInput.value}&email=${emailInput.value}&password=${passwordInput.value}&password2=${password2Input.value}&age=${ageInput.value}&phone=${phoneInput.value}&address=${addressInput.value}&residence=${residenceInput.value}&postal=${postalInput.value}dni=${dniInput.value}'
 
 fetch(url)
     .then(function(res) {

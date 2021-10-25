@@ -8,7 +8,7 @@ form h1 {
     padding: 20px;
     border-bottom: 1px solid black;
     font-weight: bolder;
-    font-size: 24px;
+    font-size: 20px;
 }
 label {
     font-weight: bold;
@@ -30,8 +30,9 @@ button {
     width: 100%;
 }
 .err-msg {
-    color: red;
     display: none;
+    padding: 5px 0px;
+    color: red;
 }
 .modal {
     display: none;
@@ -63,11 +64,21 @@ button {
     cursor: pointer;
 }
 @media only screen and (min-width: 992px) {
+    form h1 {
+        font-size: 40px;
+    }
+    label {
+        padding: 0vw 30vw 0vw 0vw;
+    }
+    .subscription-form {
+        display: block;
+        margin: 100px 15px;
+    }
     .desktop-responsive {  
-        display: flex;        
+        display: flex;
+        justify-content: center;
     }
     .subscription-column2 {
-        border-left: 1px solid rgb(85, 82, 82);
+        border-left: 1px solid black;
     }
-    
 }

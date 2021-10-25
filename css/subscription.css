@@ -7,11 +7,12 @@ form h1 {
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid black;
+    font-weight: bolder;
+    font-size: 24px;
 }
-label h2 {
+label {
     font-weight: bold;
 }
-
 button {
     padding: 20px;
     width: 100%;
@@ -66,6 +67,7 @@ button {
         display: flex;        
     }
     .subscription-column2 {
-        border-left: 1px solid black;
+        border-left: 1px solid rgb(85, 82, 82);
     }
+    
 }

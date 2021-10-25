@@ -266,7 +266,7 @@ registerForm.onsubmit= function(e) {
     } 
     //server-side validation
     var url = `http://curso-dev-2021.herokuapp.com/newsletter?name=${fullnameInput.value}&email=${emailInput.value}&password=${passwordInput.value}&password2=${password2Input.value}&age=${ageInput.value}&phone=${phoneInput.value}&address=${addressInput.value}&residence=${residenceInput.value}&postal=${postalInput.value}&dni=${dniInput.value}`
-    
+
     fetch(url)
     .then(function(res) {
         console.log(res)
@@ -291,7 +291,6 @@ function modalError(_error){
 }
 }
 //modal
-
 var modal = document.getElementById('dataModal');
 var modalMsg = document.getElementById('modal-msg');
 
@@ -324,6 +323,20 @@ function saveDataLocal(data) {
     localStorage.setItem('postal', data.postal);
     localStorage.setItem('dni', data.dni);
 }  
+
+//Complete the form with data from local storage. When refreshing the browser the the form is still completed. (ternary operator)
+window.onload = function localDataCompleteForm () {
+    localStorage.getItem('name') !== null ? fullnameInput.value = localStorage.getItem('name') : null;
+    localStorage.getItem('email') !== null ? emailInput.value = localStorage.getItem('email') : null;
+    localStorage.getItem('password') !== null ? passwordInput.value = localStorage.getItem('password') : null;
+    localStorage.getItem('password2') !== null ? password2Input.value = localStorage.getItem('password2') : null;
+    localStorage.getItem('age') !== null ? ageInput.value = localStorage.getItem('age') : null;
+    localStorage.getItem('phone') !== null ? phoneInput.value = localStorage.getItem('phone') : null;
+    localStorage.getItem('address') !== null ? addressInput.value = localStorage.getItem('address') : null;
+    localStorage.getItem('residence') !== null ? residenceInput.value = localStorage.getItem('residence') : null;
+    localStorage.getItem('postal') !== null ? postalInput.value = localStorage.getItem('postal') : null;
+    localStorage.getItem('dni') !== null ? dniInput.value = localStorage.getItem('dni') : null;
+}
 
 
 

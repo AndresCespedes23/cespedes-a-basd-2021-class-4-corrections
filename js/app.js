@@ -265,7 +265,7 @@ registerForm.onsubmit= function(e) {
         alert('Subscription process failed. Please check your data and try again.');
     } 
     //server-side validation
-    var url = `http://curso-dev-2021.herokuapp.com/newsletter?name=${fullnameInput.value}&email=${emailInput.value}&password=${passwordInput.value}&password2=${password2Input.value}&age=${ageInput.value}&phone=${phoneInput.value}&address=${addressInput.value}&residence=${residenceInput.value}&postal=${postalInput.value}&dni=${dniInput.value}`
+    var url = `https://curso-dev-2021.herokuapp.com/newsletter?name=${fullnameInput.value}&email=${emailInput.value}&password=${passwordInput.value}&password2=${password2Input.value}&age=${ageInput.value}&phone=${phoneInput.value}&address=${addressInput.value}&residence=${residenceInput.value}&postal=${postalInput.value}&dni=${dniInput.value}`
 
     fetch(url)
     .then(function(res) {

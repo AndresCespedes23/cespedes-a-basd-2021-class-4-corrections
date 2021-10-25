@@ -24,7 +24,7 @@ var postalMsg = document.getElementById('errMsgPostal');
 var dniMsg = document.getElementById('errMsgDni');
 var spanMsg = document.getElementsByClassName('errMsg')
 
-var sendButton = document.getElementsByClassName('sendButton');
+var sendButton = document.getElementById('sendButton');
 
 var fullnameReg = /^[a-zA-ZáéíóúÑñ]+(?:\s[a-zA-ZáéíóúÑñ]+)+$/;
 var emailReg= /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/;
@@ -39,7 +39,7 @@ var fields = {
     password: false,
     password2: false,
     age: false,
-    phoneNumber: false,
+    phoneNum: false,
     address: false,
     residence: false,
     postal: false,
@@ -145,11 +145,11 @@ function phoneValidation () {
     if (phoneInput.value.length >= 7 && phoneInput.value.match(numbersReg) && !phoneInput.value.match(symbolsReg)) {
         phoneInput.style.border = '2px solid green';
         phoneMsg.style.display = 'none';
-        fields['phoneNumber'] = true;
+        fields['phoneNum'] = true;
     } else {
         phoneInput.style.border = '2px solid red';
         phoneMsg.style.display = 'block';
-        fields['phoneNumber'] = false;
+        fields['phoneNum'] = false;
     }
 }
 phoneInput.addEventListener('blur', phoneValidation);
@@ -235,51 +235,74 @@ function clearDniMsg() {
 }
 dniInput.addEventListener('focus', clearDniMsg);
 
-//button
-registerForm.onclick= function(e) {
+//submit form
+registerForm.onsubmit= function(e) {
     e.preventDefault();
+
     if (
     fields ['fullname'] && 
     fields ['email'] && 
     fields ['password'] && 
     fields ['password2'] && 
     fields ['age'] && 
-    fields ['phoneNumber'] && 
+    fields ['phoneNum'] && 
     fields ['address'] && 
     fields ['residence'] && 
     fields ['postal'] && 
     fields ['dni']
     ) { 
-         alert('Subscription process successful. Your user data is:' + '\n' + 'Fullname: ' + fullnameInput.value + '\n' + 'Email: ' + emailInput.value + '\n' + 'Age: ' + ageInput.value + '\n' + 'Phone Number: ' + phoneInput.value + '\n' + 'Address: ' + addressInput.value + '\n' + 'Residence: ' + residenceInput.value + '\n' + 'Postal Code: ' + postalInput.value + '\n' + 'DNI: ' + dniInput.value);
+         alert('Subscription process successful. Your user data is:' + '\n' + 
+         'Fullname: ' + fullnameInput.value + '\n' + 
+         'Email: ' + emailInput.value + '\n' + 
+         'Age: ' + ageInput.value + '\n' + 
+         'Phone Number: ' + phoneInput.value + '\n' + 
+         'Address: ' + addressInput.value + '\n' + 
+         'Residence: ' + residenceInput.value + '\n' + 
+         'Postal Code: ' + postalInput.value + '\n' + 
+         'DNI: ' + dniInput.value);
+
     } else {
         alert('Subscription process failed. Please check your data and try again.');
     }
+
+    var url = `http://curso-dev-2021.herokuapp.com/newsletter?name=${fullnameInput.value}&email=${emailInput.value}&password=${passwordInput.value}&password2=${password2Input.value}&age=${ageInput.value}&phone=${phoneInput.value}&address=${addressInput.value}&residence=${residenceInput.value}&postal=${postalInput.value}&dni=${dniInput.value}`
+    
+    fetch(url)
+        .then(function(res) {
+            console.log(res)
+            return res.json();
+        })
+        .then(function(data){
+            modalSuccess(data)
+            saveDataLocal(data);
+        }) 
+        .catch(function(error) {
+            modalError()
+        })
+
+    function saveDataLocal(data) {
+        localStorage.setItem('name', data.name);
+        localStorage.setItem('email', data.email);
+        localStorage.setItem('password', data.password);
+        localStorage.setItem('password2', data.password2);
+        localStorage.setItem('age', data.age);
+        localStorage.setItem('phone', data.phone);
+        localStorage.setItem('address', data.address);
+        localStorage.setItem('residence', data.residence);
+        localStorage.setItem('postal', data.postal);
+        localStorage.setItem('dni', data.dni);
+    }    
+    
 }
-
-// API
-
-var url = 'http://curso-dev-2021.herokuapp.com/newsletter?name=${fullnameInput.value}&email=${emailInput.value}&password=${passwordInput.value}&password2=${password2Input.value}&age=${ageInput.value}&phone=${phoneInput.value}&address=${addressInput.value}&residence=${residenceInput.value}&postal=${postalInput.value}dni=${dniInput.value}'
-
-fetch(url)
-    .then(function(res) {
-        console.log(res)
-        return res.json();
-    })
-    .then(function(data){
-        console.log(data);
-    }) 
-    .catch(function(error) {
-        console.log(error);
-    })
-
 //modal
 
 var modal = document.getElementById('dataModal');
+var modalMsg = document.getElementById('modal-msg');
 
 function modalOpen() {
     modal.style.display = 'block';
 }
-registerForm.addEventListener('click', modalOpen)
+sendButton.addEventListener('click', modalOpen)
 
 function modalClose() {
     modal.style.display = 'none';
@@ -288,12 +311,35 @@ modal.addEventListener('click', modalClose);
 
 window.onclick = function(event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+      modal.style.display = 'none';
     }
 }
 
+function modalSuccess(){
+    modalMsg.innerHTML = "<p style='color: green'>Congratulations, you've been subscribed sucessfully!<i class='fas fa-check-circle'></i></p>";
+}
 
-//local storage
+function modalError(){
+    modalMsg.innerHTML = "<p style='color: red'><i class='fas fa-exclamation-circle'></i> Subscription process failed. Please check your data and try again!</p>";
+}
+
+
+//use data from local storage: ternary operator
+window.onload(
+    function formDataSet(){
+        localStorage.getItem('name') !== null ? fullnameInput.value = localStorage.getItem('name') : null;
+        localStorage.getItem('email') !== null ? emailInput.value = localStorage.getItem('email') : null;
+        localStorage.getItem('password') !== null ? passwordInput.value = localStorage.getItem('password') : null;
+        localStorage.getItem('password2') !== null ? password2Input.value = localStorage.getItem('password2') : null;
+        localStorage.getItem('age') !== null ? ageInput.value = localStorage.getItem('age') : null;
+        localStorage.getItem('phone') !== null ? phoneInput.value = localStorage.getItem('phone') : null;
+        localStorage.getItem('address') !== null ? addressInput.value = localStorage.getItem('address') : null;
+        localStorage.getItem('residence') !== null ? residenceInput.value = localStorage.getItem('residence') : null;
+        localStorage.getItem('postal') !== null ? postalInput.value = localStorage.getItem('postal') : null;
+        localStorage.getItem('dni') !== null ? dniInput.value = localStorage.getItem('dni') : null;
+        }
+    
+)
 
 
 

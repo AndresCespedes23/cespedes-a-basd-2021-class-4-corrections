@@ -6,7 +6,7 @@ header {
     align-items: center;
     padding: 10px 20px;
     background-color: white;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
 }
 nav {
     display: none;
@@ -44,13 +44,13 @@ main {
     cursor: pointer;
 }
 .buttons .log-in {
-    border: 1px solid black;
+    border: 2px solid black;
 }
 .daily-info {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
 }
 .daily-info img {
     display: none;
@@ -71,7 +71,7 @@ main {
 }
 .news-links1, .news-links2, .news-links3 {
     padding: 20px;
-    border-top: 1px solid black; 
+    border-top: 2px solid black; 
 }
 .news-links1 a, .news-links2 a, .news-links3 a {
     text-decoration: none;
@@ -83,7 +83,7 @@ main {
     .burger {
         display: flex;
         padding: 10px;
-        border: 1px solid black;
+        border: 2px solid black;
     }
     .burger .sections {
         display: block;
@@ -92,11 +92,11 @@ main {
         padding: 0px 10px;
     }
     .buttons .fa-search {
-        border: 1px solid black;
+        border: 2px solid black;
     }
     .la-list {
         display: block;
-        border-bottom: 1px solid black;
+        border-bottom: 2px solid black;
     }
     .la-list ul {
         display: flex;
@@ -120,7 +120,7 @@ main {
     .secondary-news-container {
         display: flex;
         border-top: 1px solid black;
-        border-bottom: 2px solid black;
+        border-bottom: 1px solid black;
     }
     .news-links1, .news-links2, .news-links3{
         margin: 20px;

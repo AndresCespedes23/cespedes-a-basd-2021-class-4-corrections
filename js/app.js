@@ -24,6 +24,17 @@ var postalMsg = document.getElementById('errMsgPostal');
 var dniMsg = document.getElementById('errMsgDni');
 var spanMsg = document.getElementsByClassName('errMsg')
 
+var fullnameSuccess = document.getElementById('fullnameSuccess');
+var emailSuccess = document.getElementById('emailSuccess');
+var passwordSuccess = document.getElementById('passwordSuccess');
+var password2Success = document.getElementById('password2Success');
+var ageSuccess = document.getElementById('ageSuccess');
+var phoneSuccess = document.getElementById('phoneSuccess');
+var addressSuccess = document.getElementById('addressSuccess');
+var residenceSuccess = document.getElementById('residenceSuccess');
+var postalSuccess = document.getElementById('postalSuccess');
+var dniSuccess = document.getElementById('dniSuccess');
+
 var sendButton = document.getElementById('sendButton');
 
 var fullnameReg = /^[a-zA-ZáéíóúÑñ]+(?:\s[a-zA-ZáéíóúÑñ]+)+$/;
@@ -50,11 +61,13 @@ var fields = {
 function fullnameValidation() {
     if (fullnameInput.value.match(fullnameReg) && fullnameInput.value.length >= 6)  {
         fullnameInput.style.border = '2px solid green';
+        fullnameSuccess.style.display = 'inline-block';
         fullnameMsg.style.display = 'none';
         fields['fullname'] = true;
     } else {
         fullnameInput.style.border = '2px solid red';
         fullnameMsg.style.display = 'block';
+        fullnameSuccess.style.display = 'none';
         fields['fullname'] = false;
     }
 }
@@ -70,10 +83,12 @@ function emailValidation() {
     if (emailInput.value.match(emailReg))  {
         emailInput.style.border = '2px solid green';
         emailMsg.style.display = 'none';
+        emailSuccess.style.display = 'inline-block';
         fields['email'] = true;
     } else {
         emailInput.style.border = '2px solid red';
         emailMsg.style.display = 'block';
+        emailSuccess.style.display = 'none';
         fields['email'] = false;
     }
 }
@@ -88,10 +103,12 @@ function passwordValidation() {
     if (passwordInput.value.match(passwordReg)) {
         passwordInput.style.border = '2px solid green';
         passwordMsg.style.display = 'none';
+        passwordSuccess.style.display = 'inline-block';
         fields['password'] = true;
     } else {
         passwordInput.style.border = '2px solid red';
         passwordMsg.style.display = 'block';
+        passwordSuccess.style.display = 'none';
         fields['password'] = false;
     }
 }
@@ -107,10 +124,12 @@ function password2Validation() {
     if(password2Input.value == passwordInput.value) {
         password2Input.style.border = '2px solid green';
         password2Msg.style.display = 'none';
+        password2Success.style.display = 'inline-block';
         fields['password2'] = true;
     }else{
         password2Input.style.border = '2px solid red';
         password2Msg.style.display = 'block';
+        password2Success.style.display = 'none';
         fields['password2'] = false;
     }
 }
@@ -126,10 +145,12 @@ function ageValidation() {
     if (ageInput.value >= 18 && !ageInput.value.match(symbolsReg)) {
         ageInput.style.border = '2px solid green';
         ageMsg.style.display = 'none';
+        ageSuccess.style.display = 'inline-block';
         fields['age'] = true;
     } else {
         ageInput.style.border = '2px solid red';
         ageMsg.style.display = 'block';
+        ageSuccess.style.display = 'none';
         fields['age'] = false;
     }
 }
@@ -145,10 +166,12 @@ function phoneValidation () {
     if (phoneInput.value.length >= 7 && phoneInput.value.match(numbersReg) && !phoneInput.value.match(symbolsReg)) {
         phoneInput.style.border = '2px solid green';
         phoneMsg.style.display = 'none';
+        phoneSuccess.style.display = 'inline-block';
         fields['phoneNum'] = true;
     } else {
         phoneInput.style.border = '2px solid red';
         phoneMsg.style.display = 'block';
+        phoneSuccess.style.display = 'none';
         fields['phoneNum'] = false;
     }
 }
@@ -164,10 +187,12 @@ function addressValidation () {
     if (addressInput.value.length >= 5 && addressInput.value.match(addressReg)) {
         addressInput.style.border = '2px solid green';
         addressMsg.style.display = 'none';
+        addressSuccess.style.display = 'inline-block';
         fields['address'] = true;
     } else {
         addressInput.style.border = '2px solid red';
         addressMsg.style.display = 'block';
+        addressSuccess.style.display = 'none';
         fields['address'] = false;
     }
 }
@@ -183,10 +208,12 @@ function residenceValidation () {
     if (residenceInput.value.length >= 3) {
         residenceInput.style.border = '2px solid green';
         residenceMsg.style.display = 'none';
+        residenceSuccess.style.display = 'inline-block';
         fields['residence'] = true;
     } else {
         residenceInput.style.border = '2px solid red';
         residenceMsg.style.display = 'block';
+        residenceSuccess.style.display = 'none';
         fields['residence'] = false;
     }
 }
@@ -202,10 +229,12 @@ function postalValidation () {
     if (postalInput.value.length >= 3 ) {
         postalInput.style.border = '2px solid green';
         postalMsg.style.display = 'none';
+        postalSuccess.style.display = 'inline-block';
         fields['postal'] = true;
     } else {
         postalInput.style.border = '2px solid red';
         postalMsg.style.display = 'block';
+        postalSuccess.style.display = 'none';
         fields['postal'] = false;
     }
 }
@@ -221,10 +250,12 @@ function dniValidation () {
     if ((dniInput.value.length >= 7 && dniInput.value.length <= 8) && dniInput.value.match(numbersReg) && !dniInput.value.match(symbolsReg)) {
         dniInput.style.border = '2px solid green';
         dniMsg.style.display = 'none';
+        dniSuccess.style.display = 'inline-block';
         fields['dni'] = true;
     } else {
         dniInput.style.border = '2px solid red';
         dniMsg.style.display = 'block';
+        dniSuccess.style.display = 'none';
         fields['dni'] = false;
     }
 }

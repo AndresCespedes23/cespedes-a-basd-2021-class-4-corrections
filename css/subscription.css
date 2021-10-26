@@ -29,6 +29,10 @@ button {
     padding: 10px 0px;
     width: 100%;
 }
+.success-icon {
+    display: none;
+    color: green;
+}
 .err-msg {
     display: none;
     padding: 5px 0px;
